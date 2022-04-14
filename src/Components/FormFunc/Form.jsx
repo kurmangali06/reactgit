@@ -33,7 +33,7 @@ export const Form = () => {
 
       <br />
       <button onClick={() => setVisible(!visible)} className='submit' >
-        {visible ? 'hide' : 'show'}
+        {visible ? 'показать' : 'очистить'}
       </button>
     </div>
   </>
