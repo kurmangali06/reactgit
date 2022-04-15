@@ -5,7 +5,6 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '@storybook/testing-library';
 
-
 describe('Button', () => {
   it('render component', () => {
     render(<Button />);

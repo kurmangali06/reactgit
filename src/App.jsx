@@ -17,16 +17,15 @@ export const App = () => {
           ...messages,
           {
             author: AUTHOR.BOT,
-            value: `HELLO I'm BOT!! `
+            value: "HELLO I'm BOT!! ",
           },
         ]);
       }, 1000);
 
       return () => {
-        clearTimeout(timeout)
+        clearTimeout(timeout);
       };
     }
-
   }, [messages]);
 
   const addMessage = (value) => {
@@ -37,11 +36,11 @@ export const App = () => {
         value,
       },
     ]);
-  }
+  };
   return (
-    <div className='container'>
+    <div className="container">
       <Form className="form" addMessage={addMessage} />
-      < MessageList messages={messages} />
+      <MessageList messages={messages} />
     </div>
   );
 };

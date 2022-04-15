@@ -1,9 +1,11 @@
-import React from "react";
+import React from 'react';
 
 export const MessageList = ({ messages }) => (
   <ul className="list1a">
     {messages.map((message, idx) => (
-      <li key={idx}>{message.author}:{message.value}</li>
+      <li key={idx}>
+        {message.author}:{message.value}
+      </li>
     ))}
   </ul>
 );
