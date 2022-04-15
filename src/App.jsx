@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { MessageList } from './Components/MessageList';
 import Form from './Components/Form/Form';
-import { AUTHOR } from './stories/constants';
+import { AUTHOR } from './constants';
 
 export const App = () => {
   const [messages, setMessages] = useState([]);
