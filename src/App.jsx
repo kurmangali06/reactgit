@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
 import Form from './Components/FormFunc/Form';
 
 export const App = () => {
