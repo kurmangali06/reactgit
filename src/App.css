@@ -2,7 +2,6 @@
   background-color: #15172b;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 500px;
   padding: 20px;
   width: 320px;
 }
@@ -83,7 +82,6 @@
 
 .list1a li:after {
   content: "";
-  position: absolute;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   -webkit-transition-property: width;
