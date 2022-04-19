@@ -24,7 +24,7 @@ describe('App', () => {
     const moskMessage = jest.fn();
     render(<Form addMessage={() => setTimeout(moskMessage, 1000)} />);
 
-    userEvent.click(screen.getByText(/click/));
+    userEvent.click(getByText(/click/));
 
     await waitFor(() => expect(moskMessage).toHaveBeenCalledTimes(1), {
       timeout: 1100,

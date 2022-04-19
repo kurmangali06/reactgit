@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export const MessageList = ({ messages }) => (
@@ -8,4 +9,4 @@ export const MessageList = ({ messages }) => (
       </li>
     ))}
   </ul>
-);
+)
