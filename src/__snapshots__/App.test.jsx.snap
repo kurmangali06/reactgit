@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App render with snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <form
+      class="form"
+    >
+      <input
+        class="input"
+        data-testid="unput-element"
+        placeholder="Введите текст"
+        type="text"
+        value=""
+      />
+      <button
+        class="submit"
+        disabled=""
+        type="submit"
+      >
+        click
+      </button>
+    </form>
+    <ul />
+  </div>
+</DocumentFragment>
+`;

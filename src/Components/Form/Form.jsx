@@ -11,17 +11,17 @@ export const Form = ({ addMessage }) => {
   };
 
   return (
-    <>
-      <form className=" form" onSubmit={handleSubmitForm}>
-        <input
-          type="text"
-          value={value}
-          onChange={(ev) => setValue(ev.target.value)}
-          className="input"
-        />
-        <Button disabled={!value} />
-      </form>
-    </>
+    <form className="form" onSubmit={handleSubmitForm}>
+      <input
+        placeholder="Введите текст"
+        type="text"
+        value={value}
+        onChange={(ev) => setValue(ev.target.value)}
+        className="input"
+        data-testid="unput-element"
+      />
+      <Button disabled={!value} />
+    </form>
   );
 };
 export default Form;
