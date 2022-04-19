@@ -30,5 +30,4 @@ describe('App', () => {
       timeout: 1100,
     });
   })*/
-
 });
