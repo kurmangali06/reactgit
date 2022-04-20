@@ -7,24 +7,24 @@ import { waitFor } from '@storybook/testing-library';
 
 describe('Button', () => {
   it('render component', () => {
-    render(<Button />);
+    render(<Button disabled={false} />);
   });
 
   it('render with snapshot', () => {
-    const { asFragment } = render(<Button />);
+    const { asFragment } = render(<Button disabled={false} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('render component with text', () => {
-    render(<Button />);
+    render(<Button disabled={false} />);
     expect(screen.getByText(/click/)).toBeInTheDocument();
   });
 
   it('render multiply components', () => {
     render(
       <>
-        <Button />
-        <Button />
+        <Button disabled={false} />
+        <Button disabled={false} />
       </>
     );
     expect(screen.queryAllByRole('button').length).toBe(2);
@@ -38,7 +38,7 @@ describe('Button', () => {
 
   it('button async click', async () => {
     const mockHandler = jest.fn();
-    render(<Button onButtonClick={() => setTimeout(mockHandler, 1000)} />);
+    render(<Button disabled={false} onButtonClick={() => setTimeout(mockHandler, 1000)} />);
 
     userEvent.click(screen.getByText(/click/));
 

@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import { nanoid } from 'nanoid'
 import { MessageList } from './Components/MessageList';
 import Form from './Components/Form/Form';
 import { AUTHOR } from './constants';
+import style from './App.module.css'
 
-export const App = () => {
-  const [messages, setMessages] = useState([]);
+interface Message {
+  id: string
+  author: string,
+  value: string,
+}
+
+export const App: FC = () => {
+  const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
     if (
@@ -16,8 +23,9 @@ export const App = () => {
         setMessages([
           ...messages,
           {
+            id: nanoid(),
             author: AUTHOR.BOT,
-            value: "HELLO I'm BOT!! ",
+            value: `HELLO I'm BOT!! `,
           },
         ]);
       }, 1000);
@@ -28,19 +36,21 @@ export const App = () => {
     }
   }, [messages]);
 
-  const addMessage = (value) => {
-    setMessages([
-      ...messages,
+  const addMessage = useCallback((value: string) => {
+    setMessages((prevMessage) => [
+      ...prevMessage,
       {
+        id: nanoid(),
         author: AUTHOR.USER,
         value,
       },
     ]);
-  };
+  }, []);
   return (
-    <div className="container">
-      <Form className="form" addMessage={addMessage} />
+    <div className={style.form}>
       <MessageList messages={messages} />
+      <Form addMessage={addMessage} />
+
     </div>
   );
 };

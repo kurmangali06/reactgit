@@ -2,6 +2,8 @@
 
 exports[`MessageList render with snapshot 1`] = `
 <DocumentFragment>
-  <ul />
+  <ul
+    class="first"
+  />
 </DocumentFragment>
 `;

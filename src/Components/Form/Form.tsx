@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Button } from './Components/Button/Button';
+import Input from '@mui/material/Input'
 
-export const Form = ({ addMessage }) => {
-  const [value, setValue] = useState('');
 
-  const handleSubmitForm = (e) => {
+interface FormProps {
+  addMessage: (a: string) => void,
+
+}
+
+export const Form: FC<FormProps> = ({ addMessage }) => {
+  const [value, setValue] = useState<string>('');
+
+  const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addMessage(value);
     setValue('');
@@ -12,7 +19,7 @@ export const Form = ({ addMessage }) => {
 
   return (
     <form className="form" onSubmit={handleSubmitForm}>
-      <input
+      <Input
         placeholder="Введите текст"
         type="text"
         value={value}
