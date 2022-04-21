@@ -18,6 +18,14 @@ module.exports = {
     extensions: ['.jsx', '.js' ,'.tsx', '.ts']
   },
   devtool: 'eval-source-map',
+  devServer: {
+    compress: true,
+    port: 8000,
+    client: {
+      logging: 'info',
+    },
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       {
@@ -49,29 +57,7 @@ module.exports = {
           'sass-loader',
         ],
       },
-      {
-        test: /\.module\.s?css$/,
-        use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                mode: 'local',
-                localIdentName: '[name]___[hash:base64:5]',
-              },
-            },
-          },
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'static/[hash][ext]',
-        },
-      },
+
       {
         test: /\.html$/i,
         loader: 'html-loader',

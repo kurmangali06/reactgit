@@ -92,6 +92,7 @@
   },
   "include": [
     "src/**/*",
-    "./jest.config.js"
+    "./jest.config.js",
+    "pages"
   ]
 }
