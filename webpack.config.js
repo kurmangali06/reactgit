@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const BundleAnalyzerPlugin =
@@ -9,15 +9,27 @@ const isDev = process.env.NODE_ENV === 'development';
 const withReport = process.env.npm_config_withReport;
 
 module.exports = {
-  entry:path.resolve(__dirname, './src/index.tsx'),
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
-    filename: 'bundle.js',
-    path:path.resolve(__dirname, './build'),
+    filename: '[name].bundle.[chunkhash].js',
+    clean: true,
+    path: path.resolve(__dirname, './build'),
+    environment: {
+      arrowFunction: false,
+    },
   },
   resolve: {
-    extensions: ['.jsx', '.js' ,'.tsx', '.ts']
+    extensions: ['.jsx', '.js', '.tsx', '.ts'],
+    alias: {
+      components: path.resolve(__dirname, 'src/components/'),
+      src: path.resolve(__dirname, 'src'),
+    },
   },
-  devtool: 'eval-source-map',
+  devtool:
+    process.env.NODE_ENV === 'production'
+      ? 'hidden-source-map'
+      : 'eval-source-map',
   devServer: {
     compress: true,
     port: 8000,
@@ -32,13 +44,6 @@ module.exports = {
         test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'static/[hash][ext]',
-        },
       },
       {
         test: /\.s?css$/i,
@@ -57,7 +62,29 @@ module.exports = {
           'sass-loader',
         ],
       },
-
+      {
+        test: /\.module\.s?css$/,
+        use: [
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]___[hash:base64:5]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[hash][ext]',
+        },
+      },
       {
         test: /\.html$/i,
         loader: 'html-loader',
@@ -74,7 +101,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: path.resolve(__dirname, './public/index.html'),
     }),
     ...(isDev
       ? [new MiniCssExtractPlugin()]
@@ -85,5 +112,5 @@ module.exports = {
           }),
         ]),
     ...(withReport ? new BundleAnalyzerPlugin() : ''),
-  ]
-}
+  ],
+};

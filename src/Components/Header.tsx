@@ -1,5 +1,8 @@
+import { ClassNames } from "@emotion/react";
+import { link } from "fs";
 import React, { FC } from "react";
 import { Outlet, NavLink } from "react-router-dom";
+import style from './Header.module.css'
 
 const navigate = [
   {
@@ -21,15 +24,15 @@ const navigate = [
 
 export const Header: FC = () => (
   <header>
-    <ul>
-      <li><NavLink to="/"
-        style={({ isActive }) => ({ color: isActive ? 'green' : 'blue' })}>
-        Home</NavLink></li>
-      <li><NavLink to="/profile">profile</NavLink></li>
-      <li><NavLink to="/chats">chats</NavLink></li>
+    <ul className={style.list}>
+      {navigate.map((link) => (
+        <li key={link.id}><NavLink to={link.to}
+          style={({ isActive }) => ({ color: isActive ? 'green' : 'blue' })}>
+          {link.name}
+        </NavLink></li>))}
     </ul>
     <main>
       <Outlet />
     </main>
-  </header>
+  </header >
 )

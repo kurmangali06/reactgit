@@ -13,9 +13,9 @@ interface MessageListProps {
 }
 
 export const MessageList: FC<MessageListProps> = ({ messages }) => (
-  <ul className={css.first}>
-    {messages.map((message, idx) => (
-      <li key={idx}>
+  <ul className={css.first} >
+    {messages.map((message, id) => (
+      <li key={id}>
         {message.author}: {message.value}
       </li>
     ))}
