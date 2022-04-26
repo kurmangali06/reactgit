@@ -6,7 +6,8 @@ import { ChatsList } from "../Components/ChatsList";
 import Form from "../Components/Form/Form";
 import { MessageList } from "../Components/MessageList";
 import { AUTHOR } from "../constants";
-import style from './Chats.module.css'
+import { WithClasses } from "../HOC/WithClasses";
+import './Chats.module.css'
 
 interface ChatProps {
   messages: Messages,
@@ -20,6 +21,7 @@ interface ChatProps {
 export const Chats: FC<ChatProps> = ({
   chatList, onAddChat, messages, setMessages, onDeleteChat }) => {
   const { chatId } = useParams();
+  const MessageListWithClass = WithClasses(MessageList)
   useEffect(() => {
     if (
       chatId &&
@@ -69,9 +71,10 @@ export const Chats: FC<ChatProps> = ({
   }
 
   return (
-    <div className={style.container} >
+    <div className='container' >
       <ChatsList chatList={chatList} onAddChat={onAddChat} onDeleteChat={onDeleteChat} />
-      <MessageList messages={chatId ? messages[chatId] : []} />
+
+      < MessageListWithClass messages={chatId ? messages[chatId] : []} classes='border' />
       <Form addMessage={addMessage} />
 
     </div>

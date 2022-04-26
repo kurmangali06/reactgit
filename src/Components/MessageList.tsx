@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import css from './MessageList.module.css'
+import './MessageList.module.css'
 
 
 interface Message {
@@ -13,7 +13,7 @@ interface MessageListProps {
 }
 
 export const MessageList: FC<MessageListProps> = ({ messages }) => (
-  <ul className={css.first} >
+  <ul className='first' >
     {messages.map((message, id) => (
       <li key={id}>
         {message.author}: {message.value}

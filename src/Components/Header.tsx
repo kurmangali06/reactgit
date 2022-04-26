@@ -2,7 +2,7 @@ import { ClassNames } from "@emotion/react";
 import { link } from "fs";
 import React, { FC } from "react";
 import { Outlet, NavLink } from "react-router-dom";
-import style from './Header.module.css'
+import './Header.module.css'
 
 const navigate = [
   {
@@ -24,7 +24,7 @@ const navigate = [
 
 export const Header: FC = () => (
   <header>
-    <ul className={style.list}>
+    <ul className='list'>
       {navigate.map((link) => (
         <li key={link.id}><NavLink to={link.to}
           style={({ isActive }) => ({ color: isActive ? 'green' : 'blue' })}>
