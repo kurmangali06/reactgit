@@ -29,7 +29,7 @@ export const addMessage: AddMessage = (
 let timeout: NodeJS.Timeout;
 
 export const addMessageWithReplay =
-  (chatId: string, message: Message) => (dispatch: Dispatch) => {
+  (chatId: string, message: Message): any => (dispatch: Dispatch) => {
     dispatch(addMessage(chatId, message));
 
     if (message.author !== AUTHOR.BOT) {
