@@ -2,8 +2,9 @@ import React, { FC, useState } from 'react';
 import { Button } from './Components/Button/Button';
 import Input from '@mui/material/Input'
 import { useDispatch } from 'react-redux';
-import { addMessage } from '../../store/chats/action';
+import { addMessageWithReplay } from '../../store/chats/action';
 import { useParams } from 'react-router-dom';
+import { AUTHOR } from '../../constants';
 
 
 
@@ -16,7 +17,8 @@ export const Form: FC = () => {
   const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (chatId) {
-      dispatch(addMessage(chatId, value));
+      dispatch(addMessageWithReplay(chatId, { text: value, author: AUTHOR.USER }));
+
     }
 
     setValue('');

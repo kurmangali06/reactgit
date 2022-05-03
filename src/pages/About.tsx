@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { connect } from "react-redux";
 import ButtonU from '@mui/material/Button';
 import { StoreState } from "../store";
-import { toggleProfile } from "../store/profile/actions";
+import { toggleProfile } from "../store/profile/slice";
 import { Dispatch } from "redux";
 
 interface AboutProprs {

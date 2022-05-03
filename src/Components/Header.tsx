@@ -29,7 +29,7 @@ const navigate = [
 
 export const Header: FC = () => (
   <header>
-    <ul className='list'>
+    <ul style={{ display: 'flex', justifyContent: 'space-around' }}>
       {navigate.map((link) => (
         <li key={link.id}><NavLink to={link.to}
           style={({ isActive }) => ({ color: isActive ? 'green' : 'blue' })}>

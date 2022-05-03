@@ -1,7 +1,7 @@
 import { ThemeContext } from "../utils/ThemeContext"
 import React, { FC, useContext, useState } from "react";
 import { useSelector } from "react-redux";
-import { changeName, toggleProfile } from "../store/profile/actions";
+import { changeName, toggleProfile } from "../store/profile/slice";
 import { useDispatch } from 'react-redux'
 import Input from '@mui/material/Input';
 import ButtonU from '@mui/material/Button';
