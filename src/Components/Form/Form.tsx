@@ -1,10 +1,11 @@
 import React, { FC, useState } from 'react';
-import { Button } from './Components/Button/Button';
+
 import Input from '@mui/material/Input'
 import { useDispatch } from 'react-redux';
 import { addMessageWithReplay } from '../../store/chats/action';
 import { useParams } from 'react-router-dom';
 import { AUTHOR } from '../../constants';
+import "./Form.css"
 
 
 
@@ -34,7 +35,7 @@ export const Form: FC = () => {
         className="input"
         data-testid="unput-element"
       />
-      <Button disabled={!value} />
+      <button disabled={!value} >отправить</button>
     </form>
   );
 };

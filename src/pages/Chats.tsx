@@ -6,7 +6,7 @@ import Form from "../Components/Form/Form";
 import { MessageList } from "../Components/MessageList";
 import { WithClasses } from "../HOC/WithClasses";
 import { selectChatList, selectChats } from "../store/chats/selectors";
-import './Chats.module.css'
+import './Chats.css'
 
 export const Chats: FC = () => {
   const { chatId } = useParams();
@@ -50,7 +50,7 @@ export const Chats: FC = () => {
   }
 
   return (
-    <div className='container' >
+    <div className="link" >
       <ChatsList />
 
       < MessageListWithClass messages={chatId ? chats[chatId] : []} classes='border' />
