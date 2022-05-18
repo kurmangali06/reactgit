@@ -1,0 +1,18 @@
+.first {
+  list-style: none;
+  padding: 0;
+ 
+}
+
+.first li {
+  padding: 10px 30px;
+  color: green;
+  font-size: 20px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .2);
+  margin-bottom: 5px;
+  width: 200px;
+}
+
+.first li:last-child {
+  border-bottom: none;
+}

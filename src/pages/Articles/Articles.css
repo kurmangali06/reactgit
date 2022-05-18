@@ -1,0 +1,24 @@
+.new {
+  align-items: center;
+}
+
+.new li h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+.new li img {
+  width: 950px;
+  height: 550px;
+}
+.new li h4 {
+  font-size: 24px;
+  font-weight: 300;
+}
+.new li p {
+  font-size: 16px;
+  width: 550px;
+}
+.new li a {
+  text-decoration: none;
+  color: green;
+}
