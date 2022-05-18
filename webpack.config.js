@@ -106,11 +106,11 @@ module.exports = {
     ...(isDev
       ? [new MiniCssExtractPlugin()]
       : [
-          new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
-            chunkFilename: '[name].[contenthash].css',
-          }),
-        ]),
+        new MiniCssExtractPlugin({
+          filename: '[name].[contenthash].css',
+          chunkFilename: '[name].[contenthash].css',
+        }),
+      ]),
     ...(withReport ? new BundleAnalyzerPlugin() : ''),
   ],
 };

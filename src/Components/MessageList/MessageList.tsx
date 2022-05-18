@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './MessageList.module.css'
+import './MessageList.css'
 
 
 interface Message {

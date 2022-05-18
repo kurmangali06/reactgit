@@ -1,0 +1,58 @@
+.dark {
+  background-color: black;
+}
+
+.light {
+  background-color: antiquewhite;
+}
+.container {
+  margin: 50px 250px;
+  align-items: center;
+  
+}
+.container h2 {
+  font-size: 36px;
+}
+
+.container button {
+  background: green;
+  padding: 20px 75px;
+  border: 0;
+  border-radius: 20px;
+  font-size: 16px;
+  color: #f2f2f2; 
+  display: block;
+  
+}
+
+.container button:hover {
+  transform: scale(1.1);
+  transition: 1s ease-in-out;
+}
+.container button:active {
+  background: #f2f2f2;
+  color: green;
+  transform: scale(0.9);
+  transition: 1s ease-in-out;
+}
+
+.container div {
+  margin: 0 auto;
+  
+}
+.container div p {
+  color: green;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+}
+
+input {
+  border: 1px solid #151516;
+  border-radius: 10px;
+  padding: 20px 40px;
+  margin-bottom: 20px;
+  background: transparent;
+  font-size: 32px;
+  color: green;
+}

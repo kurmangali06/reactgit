@@ -5,8 +5,9 @@ import Input from '@mui/material/Input'
 import { ListItem } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch, useSelector } from "react-redux";
-import { addChat, deleteChat } from "../store/chats/action";
-import { selectChatList } from "../store/chats/selectors";
+import { addChat, deleteChat } from "../../store/chats/slice";
+import { selectChatList } from "../../store/chats/selectors";
+import './ChatsList.css'
 
 
 export const ChatsList: FC = () => {
@@ -20,7 +21,7 @@ export const ChatsList: FC = () => {
     e.preventDefault();
 
     if (name) {
-      dispatch(addChat(name));
+      dispatch(addChat({ name }));
       setName('')
     }
   };
@@ -28,9 +29,9 @@ export const ChatsList: FC = () => {
     <>
       <ul>
         {chatList.map((chat) => (
-          <ListItem key={chat.id}>
-            <Link to={`/chats/${chat.name}`}>{chat.name}</Link>
-            <button onClick={() => dispatch(deleteChat(chat.name))}><DeleteIcon /></button>
+          <ListItem key={chat.id} className='list'>
+            <Link className="link" to={`/chats/${chat.name}`}>{chat.name}</Link>
+            <button onClick={() => dispatch(deleteChat({ chatId: chat.name }))}><DeleteIcon /></button>
           </ListItem>
         ))}
       </ul>
