@@ -1,10 +1,10 @@
-import { ThemeContext } from "../utils/ThemeContext"
+import { ThemeContext } from "../../utils/ThemeContext"
 import React, { FC, useContext, useState } from "react";
 import { useSelector } from "react-redux";
-import { changeName, toggleProfile } from "../store/profile/slice";
+import { changeName, toggleProfile } from "../../store/profile/slice";
 import { useDispatch } from 'react-redux'
 
-import { selectName, selectVisible } from "../store/profile/selectors";
+import { selectName, selectVisible } from "../../store/profile/selectors";
 import "./Profile.css"
 
 export const Profile: FC = () => {

@@ -2,10 +2,13 @@ import React, { FC, useState } from 'react';
 
 import Input from '@mui/material/Input'
 import { useDispatch } from 'react-redux';
-import { addMessageWithReplay } from '../../store/chats/action';
+import { addMessageWithReplay, chatsState } from '../../store/chats/slice';
 import { useParams } from 'react-router-dom';
 import { AUTHOR } from '../../constants';
 import "./Form.css"
+import { AddMessage } from '../../store/chats/types';
+import { ThunkDispatch } from 'redux-thunk';
+
 
 
 
@@ -13,12 +16,15 @@ export const Form: FC = () => {
   const [value, setValue] = useState('');
   const { chatId } = useParams();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<ThunkDispatch<chatsState, void, ReturnType<AddMessage>>>();
 
   const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (chatId) {
-      dispatch(addMessageWithReplay(chatId, { text: value, author: AUTHOR.USER }));
+      dispatch(
+        addMessageWithReplay({ chatId, message: { text: value, author: AUTHOR.USER } })
+      );
 
     }
 

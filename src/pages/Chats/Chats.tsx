@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
-import { ChatsList } from "../Components/ChatsList";
-import Form from "../Components/Form/Form";
-import { MessageList } from "../Components/MessageList";
-import { WithClasses } from "../HOC/WithClasses";
-import { selectChatList, selectChats } from "../store/chats/selectors";
+import { ChatsList } from "../../Components/ChatsList/ChatsList";
+import Form from "../../Components/Form/Form";
+import { MessageList } from "../../Components/MessageList/MessageList";
+import { WithClasses } from "../../HOC/WithClasses";
+import { selectChatList, selectChats } from "../../store/chats/selectors";
 import './Chats.css'
 
 export const Chats: FC = () => {
